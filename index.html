@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box with Growing Divs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    backgroundImage: {
+                        'hero-bg': "url('assets/img/png/hero-bg.png')",
+                        'card-bg': "url('assets/img/webp/hero-bg.webp')",
+                    },
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes anime {
+            0% {
+                width: 60px;
+                height: 60px;
+                background: url(./assets/img/png/hero-bg.png);
+                box-shadow: 0 0 0 #cccccc, 0 0 0 #ffffff, 10px 10px 10px #cccccc inset, -10px -10px 10px #ffffff inset;
+            }
+
+            25% {
+                width: 60px;
+                height: 60px;
+                background: url(./assets/img/png/hero-bg.png);
+                box-shadow: 10px 10px 10px #cccccc, 10px 10px 10px #ffffff, 0 0 0 #cccccc inset, 0 0 0 #ffffff inset;
+            }
+
+            50% {
+                width: 60px;
+                height: 340px;
+                background: url(./assets/img/png/hero-bg.png);
+                box-shadow: 10px 10px 10px #cccccc, 10px 10px 10px #ffffff, 0 0 0 #cccccc inset, 0 0 0 #ffffff inset;
+            }
+
+            100% {
+                width: 1000px;
+                height: 340px;
+                background: url('https://tse2.mm.bing.net/th?id=OIP.upP6Oh6pe4S1mOVNJMPD5QHaEK&pid=Api&P=0&h=220');
+                background-size: cover;
+            }
+        }
+
+        .animate-box {
+            animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+        }
+
+        .inner-boxes {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            justify-content: space-between;
+        }
+
+        .inner-box {
+            flex-grow: 1;
+            height: 100%;
+            transition: flex-grow 0.3s ease;
+        }
+
+        .inner-box:hover {
+            flex-grow: 14 !important;
+        }
+
+        .bg-1 {
+            background-image: url('https://tse4.mm.bing.net/th?id=OIP.81H_hBBy1HjeKL6An_O1gwHaEg&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-2 {
+            background-image: url('https://tse3.mm.bing.net/th?id=OIP.Lh8qRQX7wo80_vkolNQz7wHaEK&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-3 {
+            background-image: url('https://tse4.mm.bing.net/th?id=OIP.0uHd5_GNObVeTFZc_oGPagHaEK&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-4 {
+            background-image: url('https://tse2.mm.bing.net/th?id=OIP.rfH3HgJjxQ5NhqqOPGLHwQHaEK&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-5 {
+            background-image: url('https://tse3.mm.bing.net/th?id=OIP.mSyyvGvx-8B_F8cK_j8LDgHaEK&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-6 {
+            background-image: url('https://tse4.mm.bing.net/th?id=OIP.eBoUf9C3j90sQsmE0MgGPQHaEK&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-7 {
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.2TbBaJjz_4KlitDRybfrqAHaEK&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-8 {
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.f9LIH0E_ALUn4lXMYFLMjgHaER&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-9 {
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.xtyWPUUctqmALeXGHhEL-QHaEK&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bg-10 {
+            background-image: url('https://tse2.mm.bing.net/th?id=OIP.0cc-Re0qEYDDmikMdL02nwHaEK&pid=Api&P=0&h=220');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body class="relative">
+    <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover">
+        <source src="./assets/video/72488-543388303_medium.mp4" type="video/mp4" />
+      </video>
+    <section class="flex justify-center items-center h-screen">
+        <div class="flex justify-center items-center w-full h-full">
+            <div class="box w-16 h-16 z-50 rounded-xl bg-black animate-box flex flex-col p-2 overflow-hidden relative">
+                <div class="inner-boxes w-full h-full bg-hero-b bg-cover">
+                    <div class="inner-box bg-1" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-2" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-3" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-4" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-5" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-6" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-7" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-8" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-9" onclick="toggleGrowBox(this)"></div>
+                    <div class="inner-box bg-10" onclick="toggleGrowBox(this)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
