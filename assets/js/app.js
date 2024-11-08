@@ -1,3 +1,4 @@
+// ======================== js for flex grow ============================
 function toggleGrowBox(box) {
     if (box.classList.contains('grow-box')) {
         box.classList.remove('grow-box');
@@ -7,6 +8,3 @@ function toggleGrowBox(box) {
         box.classList.add('grow-box');
     }
 }
-
-
-
